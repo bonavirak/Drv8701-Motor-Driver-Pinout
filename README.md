@@ -1,94 +1,66 @@
-# DRV8701 Motor Driver PCB
+# DRV8701 Motor Driver – Pin Configuration
 
-## General
+## Overview
 
-This project is a high-current DC motor driver based on the DRV8701 gate driver IC.
-It is designed for robotics applications such as Robocon, where reliable and efficient motor control is required.
+This board is a DRV8701-based motor driver designed for 12V DC motors.
 
-The driver uses external MOSFETs to form an H-bridge, allowing bidirectional control of DC motors with PWM.
-
----
-
-## Configuration
-
-### Electrical Specifications
-
-* Supply Voltage (VM): 12V (compatible with 3S Li-ion)
-* Logic Voltage: 3.3V / 5V
-* Driver IC: DRV8701
-* Topology: External MOSFET H-Bridge
+Scan this page to quickly understand how to connect and use the board.
 
 ---
 
-### Control Interface
+## Power Connections
 
-* PWM input (speed control)
-* Direction control (PH/EN)
-* nFAULT output (fault monitoring)
-* Current sense output (SNSOUT → MCU ADC)
-
----
-
-### Protection Features
-
-* TVS diode (SMBJ18A) for voltage spike protection
-* Reverse polarity protection (MOSFET-based)
-* Bulk capacitor for transient suppression
-* Proper ground plane design for noise reduction
+* VM → 12V supply
+* GND → Power ground
+* DVDD → Logic supply (3.3V / 5V)
 
 ---
 
-### PCB Design
+## Motor Output
 
-* 4-layer PCB
-* Solid ground plane (low impedance return path)
-* Power plane for VM distribution
-* Wide copper for high current paths
-* Thermal vias under driver IC for heat dissipation
+* OUT1 → Motor terminal A
+* OUT2 → Motor terminal B
 
 ---
 
-## Hardware Files
+## Control Pins (MCU)
 
-* `/hardware/kicad` → KiCad schematic and PCB files
-* `/docs` → Exported schematics (PDF)
-* `/images` → PCB renders and screenshots
-
----
-
-## Usage
-
-1. Connect power supply (12V) to VM and GND
-2. Connect motor to output terminals
-3. Provide control signals from MCU:
-
-   * PWM
-   * Direction
-4. Monitor fault via nFAULT pin
-5. (Optional) Read current via SNSOUT
+| Pin      | Description                    |
+| -------- | ------------------------------ |
+| IN1 / PH | Direction control              |
+| IN2 / EN | PWM speed control              |
+| nFAULT   | Fault output (active LOW)      |
+| SNSOUT   | Current sense (connect to ADC) |
 
 ---
 
-## Status
+## Basic Usage
 
-🚧 In development
+1. Connect 12V to VM and GND
+2. Connect motor to OUT1 and OUT2
+3. Connect MCU:
+
+   * PWM → EN / IN2
+   * Direction → IN1 / PH
+4. Monitor nFAULT for errors
+5. (Optional) Read current from SNSOUT
 
 ---
 
-## Future Improvements
+## Notes
 
-* Current limiting tuning
-* Thermal performance optimization
-* CAN or advanced communication interface
+* Use proper power supply (able to handle motor current)
+* Ensure good cooling for high load
+* Do not reverse polarity
+
+---
+
+## Documentation
+
+📄 Pinout PDF: (upload your PDF in repo and link here)
 
 ---
 
 ## Author
 
 Bona Virak
-
----
-
-## License
-
-MIT License
