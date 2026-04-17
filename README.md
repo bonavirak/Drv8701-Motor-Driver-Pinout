@@ -23,7 +23,7 @@ The driver uses external MOSFETs to form an H-bridge, allowing bidirectional con
 ### Control Interface
 
 * PWM input (speed control)
-* Direction control (IN1 / IN2 or PH/EN)
+* Direction control (PH/EN)
 * nFAULT output (fault monitoring)
 * Current sense output (SNSOUT → MCU ADC)
 
