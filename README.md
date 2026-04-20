@@ -10,16 +10,14 @@ Scan this page to quickly understand how to connect and use the board.
 
 ## Power Connections
 
-* VM → 12V supply
+* VM → 12V/24V supply
 * GND → Power ground
-* DVDD → Logic supply (3.3V / 5V)
-
 ---
 
 ## Motor Output
 
-* OUT1 → Motor terminal A
-* OUT2 → Motor terminal B
+* M- → Motor terminal A
+* M+ → Motor terminal B
 
 ---
 
@@ -27,8 +25,8 @@ Scan this page to quickly understand how to connect and use the board.
 
 | Pin      | Description                    |
 | -------- | ------------------------------ |
-| IN1 / PH | Direction control              |
-| IN2 / EN | PWM speed control              |
+| PH | Direction control                    |
+| EN | PWM speed control                    |
 | nFAULT   | Fault output (active LOW)      |
 | SNSOUT   | Current sense (connect to ADC) |
 
@@ -36,12 +34,12 @@ Scan this page to quickly understand how to connect and use the board.
 
 ## Basic Usage
 
-1. Connect 12V to VM and GND
-2. Connect motor to OUT1 and OUT2
+1. Connect 12V/24V to VM and GND
+2. Connect motor to M+ and M-
 3. Connect MCU:
 
-   * PWM → EN / IN2
-   * Direction → IN1 / PH
+   * PWM → EN 
+   * Direction → PH
 4. Monitor nFAULT for errors
 5. (Optional) Read current from SNSOUT
 
