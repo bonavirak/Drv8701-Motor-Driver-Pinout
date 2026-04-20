@@ -57,7 +57,7 @@ Scan this page to quickly understand how to connect and use the board.
 
 ## Documentation
 
-📄 Pinout PDF: (upload your PDF in repo and link here)
+📄 Pinout PDF: (https://github.com/bonavirak/Drv8701-Motor-Driver-Pinout/blob/main/DRV8701_to_STM32_Pinout.pdf)
 
 ---
 
